@@ -65,7 +65,7 @@ class bukuController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //update edit
         $buku = Buku::find($id);
         $buku->judul = $request->judul;
         $buku->penulis = $request->penulis;
@@ -81,6 +81,10 @@ class bukuController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //hapus
+        $buku = Buku::find($id);
+        $buku->delete();
+
+        return redirect('/buku');
     }
 }
