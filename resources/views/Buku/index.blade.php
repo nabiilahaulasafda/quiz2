@@ -1,4 +1,4 @@
-@extends('layouts.app')More actions
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -49,11 +49,11 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                Yakin Data Dosen a.n. {{$data->nama}} ingin dihapus?
+                                                Yakin Data Penulis a.n. {{$data->nama}} ingin dihapus?
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                <form action="dosen/{{$data->id}}" method="post">
+                                                <form action="buku/{{$data->id}}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Hapus</button>
