@@ -14,7 +14,7 @@ class bukuController extends Controller
     {
         $nomor = 1;
         $buku = Buku::all();
-        return view('Buku.index' compact('nomor', 'buku'));
+        return view('Buku.index',compact('nomor', 'buku'));
     }
 
     /**
@@ -32,10 +32,10 @@ class bukuController extends Controller
     public function store(Request $request)
     {
         //tambah
-        $buku = new Buku;More actions
+        $buku = new Buku;
         $buku->judul = $request->judul;
         $buku->penulis = $request->penulis;
-        $buku->tahunTerbit = $request->tahunTerbit;
+        $buku->tahunterbit = $request->tahunterbit;
         $buku->penerbit = $request->penerbit;
         $buku->save();
 
@@ -55,7 +55,9 @@ class bukuController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        //edit
+        $buku = Buku::find($id);
+        return view('Buku.edit',compact('buku'));
     }
 
     /**
@@ -64,6 +66,14 @@ class bukuController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $buku = Buku::find($id);
+        $buku->judul = $request->judul;
+        $buku->penulis = $request->penulis;
+        $buku->tahunterbit = $request->tahunterbit;
+        $buku->penerbit = $request->penerbit;
+        $buku->save();
+
+        return redirect('/buku');
     }
 
     /**
